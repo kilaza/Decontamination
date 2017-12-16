@@ -21,19 +21,19 @@ outDir=/ # give the path to where your output should be directed
 
 align_seqs.py -i $inDir/conta.fa -o $outDir/decon100 -t $inDir/otus_repsetOUT.fa -e 250 -p 100.0
 
-# conta.fa is a fasta file with sequences from spiked controls after removing known spiked bacteria
-# decon100 is a  folfer where the output after aligningment will be stored
-# otus_repsetOUT.fa is a fasta file with all biological sequences
+#conta.fa is a fasta file with sequences from spiked controls after removing known spiked bacteria
+#decon100 is a  folfer where the output after aligningment will be stored
+#otus_repsetOUT.fa is a fasta file with all biological sequences
 #-e = 250  - align sequences for their entire length i.e 250bp
 #-p = 100, percent sequence similarity is set to 100%.
-# PyNAST is a default alignment method.
+#PyNAST is a default alignment method.
 
 ## output will be three files
-#1. conta_aligned.fasta - this a fasta file with sequences which aligned to biological sequences
-#2. conta_failures.fasta - this is fasta file with sequences which did not align to any biological sequences
-#3. conta_log.txt- this is a summary file showing which contaminant OTU aligned to a given biological sample. this
-# summary will be used to locate contaminant OTUs of which their respective average sequence reads will be subtracted
-# from matched biological OTUs. NB: conta - stands for contaminant,the user can assign anyother name.
+#conta_aligned.fasta - this a fasta file with sequences which aligned to biological sequences
+#conta_failures.fasta - this is fasta file with sequences which did not align to any biological sequences
+#conta_log.txt- this is a summary file showing which contaminant OTU aligned to a given biological sample. this
+#summary will be used to locate contaminant OTUs of which their respective average sequence reads will be subtracted
+#from matched biological OTUs. NB: conta - stands for contaminant,the user can assign anyother name.
 
 ##subtracting contaminants reads from biological (target) samples.. in progress...
 
