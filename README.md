@@ -28,12 +28,12 @@ align_seqs.py -i $inDir/conta.fa -o $outDir/decon100 -t $inDir/otus_repsetOUT.fa
 #-p = 100, percent sequence similarity is set to 100%.
 #PyNAST is a default alignment method.
 
-## output will be three files
+# output will be three files
 #conta_aligned.fasta - this a fasta file with sequences which aligned to biological sequences
 #conta_failures.fasta - this is fasta file with sequences which did not align to any biological sequences
 #conta_log.txt- this is a summary file showing which contaminant OTU aligned to a given biological sample. this
 #summary will be used to locate contaminant OTUs of which their respective average sequence reads will be subtracted
 #from matched biological OTUs. NB: conta - stands for contaminant,the user can assign anyother name.
 
-##subtracting contaminants reads from biological (target) samples.. in progress...
+# subtracting contaminants reads from biological (target) samples.. in progress...
 
