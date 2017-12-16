@@ -1,4 +1,4 @@
-# Decontamination
+# Decontamination :work in progress
 This script show how to decontaminate biological sequences from contaminant OTUs sequences
 Since sample collection, DNA isolation and purification are associated with possible introduction of contaminant DNA apart from the DNA from intended samples. Some possible contaminant soiurces are sampling containers /vials, sampling reagents, DNA isolation reagents, Scientist/technician and lab environments. It is important to remove contaminant so as to retain a true biological representation of the sampled site. Indeed this is very critical in clinical samples where, sli
 
