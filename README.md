@@ -10,14 +10,14 @@ Important steps for the decontamination:
 #Run the DNA isolation, library preparation and sequencing, similar to what is done in biological samples
 
 # Drylab
-#Run Qc and OTU picking of controls and biological samples
+#Run QC and OTU picking of controls and biological samples
 #Run taxonomic annotation of Controls to identify sequences against their taxon
-#make comparison of the replicates by calculating percentage of reads for each detected reads
-#If reads are comparable between replicates ( compare percentages), then calculate average reads of each OTU detected
+#Make comparison of the replicates by calculating percentage of reads for each plate
+#If reads are comparable between replicates (compare percentages), then calculate average reads of each OTU detected
 #Remove spiked taxa sequence/s to retain contaminant/background sequences from the controls
-#Search for contamtaminat sequences in the biological sample sequences by aligning contaminant sequence against biological sample sequences  at 100%, full length, using pynast algorithmn
-#if contaminants are present in the biological sample, then contaminant sequences will map to specific sequence in biological sample
-#decontamination will be done by subtracting average reads of contaminant sequence (OTU) from the mapped biological sample sequence (OTU). i.e subtraction of contaminant sequence reads/ OTUS will be done from the biological sample otu_table.
+#Search for contamtaminant sequences in the biological sample sequences by aligning contaminant sequence against pre aligned biological sample sequences  at 100%, full length, using pynast algorithmn method and Uclast algorithmn for pairewise alignment
+#If contaminants sequences are present in the biological sample, then contaminant sequences will map to specific sequence in biological sample sequences
+#Then subtract average reads of contaminant sequence (OTU) from the mapped biological sample sequence (OTU). i.e subtraction of contaminant sequence reads/ OTUS will be done from the biological sample otu_table.
 #After decontamination, taxonomic annotation of the biological sample sequences will be done (i.e decontaminated otu-table used).
 
 # setup
@@ -33,23 +33,25 @@ source /home/kmwaikono/activate_qiime.sh # activate the qiime
 
 inDir=/  # give the path to where your input files are located
 
-outDir=/ # give the path to where your output should be directed
+outDir=/ # give the path to where your output files should be directed
 
-align_seqs.py -i $inDir/conta.fa -o $outDir/decon100 -t $inDir/otus_repsetOUT.fa -e 250 -p 100.0
+align_seqs.py -i $inDir/conta.fa -o $outDir/decon100 -t $inDir/otus_repsetOUT.fa -e 250 -a uclust -p 100.0
 
 #conta.fa: Is a fasta file with sequences from spiked controls after removing known spiked bacteria
-#decon100: Is a  folder where the output after aligningment will be directed
-#otus_repsetOUT.fa: Is a fasta file with all biological sequences
-#-e = 250  - align sequences for their entire length i.e 250bp
-#-p = 100, percent sequence similarity is set to 100%.
-#PyNAST is a default alignment method.
+#decon100: Is a  folder where the output after aligningment will be directed (any name can be given)
+#otus_repsetOUT.fa: Is a pree aligned fasta file with all biological sample sequences
+#-e = 250 :Align sequences for their entire length i.e 250bp
+#-p = 100 :Percent sequence similarity between contaminant OTUs and Biological sample sequences
+#-m = PyNAST : method for aligning sequences
+#-a = uclust : method for performing pairwise alignmnent of sequences
+
 
 # Output files
 #conta_aligned.fasta: This a fasta file with sequences which aligned to biological sequences
 #conta_failures.fasta: This is fasta file with sequences which did not align to any biological sequences
-#conta_log.txt: This is a summary file showing which contaminant OTU aligned to a given biological sample. this
+#conta_log.txt: This is a summary file showing contaminant OTU which aligned to a given biological sample sequences. This
 #summary will be used to locate contaminant OTUs of which their respective average sequence reads will be subtracted
-#from matched biological OTUs. NB: conta - stands for contaminant,the user can assign anyother name.
+#from matched biological OTUs. NB: conta - stands for contaminant,the user can give a different name.
 
 # Subtracting contaminants reads from biological (target) samples.. in progress...
 
