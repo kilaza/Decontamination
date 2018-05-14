@@ -6,18 +6,18 @@ Sample collection, DNA isolation and purification are associated with possible i
 Important steps for the decontamination:
 
 # Wetlab
-#Prepare atleast three replicates of a blank controls spiked with known bacteria (sampling media or reagents can be used)
-#Run the DNA isolation, library preparation and sequencing, similar to what is done in biological samples
+Prepare atleast three replicates of a blank controls spiked with known bacteria (sampling media or reagents can be used)
+Run the DNA isolation, library preparation and sequencing, similar to what is done in biological samples
 
 # Bionformatics steps
-#Run QC and OTU picking of the spiked controls and biological samples separatedly
-#Run taxonomic annotation of the spiked controls to identify sequences taxonomy
-#Check reproducibility of controls by comparing percentage of reads in each replicate
-#If reads are comparable between replicates (compare percentages), then calculate average reads of each OTU detected
-#Remove the spiked taxa sequence/s to retain only the contaminant/background sequences from the controls
-#Search for contamtaminant sequences / OTUs in the biological sample sequences by aligning contaminant sequence against the pre aligned biological sample sequences  at 100%, full length (i.e 250 bp), using PyNASTmethod and Uclust algorithmn for pairewise alignment
-#If contaminants are present in the biological sample, then contaminant OTUs sequences will map to specific sequence in the biological sample sequences
-#Then, the average reads of the contaminant OTU sequences will be substracted from the mapped biological sample OTU sequences. i.e subtraction of contaminant sequence reads/ OTUS will be done from the biological sample otu_table.
+-Run QC and OTU picking of the spiked controls and biological samples separatedly
+-Run taxonomic annotation of the spiked controls to identify sequences taxonomy
+-Check reproducibility of controls by comparing percentage of reads in each replicate
+-If reads are comparable between replicates (compare percentages), then calculate average reads of each OTU detected
+-Remove the spiked taxa sequence/s to retain only the contaminant/background sequences from the controls
+-Search for contamtaminant sequences / OTUs in the biological sample sequences by aligning contaminant sequence against the pre aligned biological sample sequences  at 100%, full length (i.e 250 bp), using PyNASTmethod and Uclust algorithmn for pairewise alignment
+-If contaminants are present in the biological sample, then contaminant OTUs sequences will map to specific sequence in the biological sample sequences
+-Then, the average reads of the contaminant OTU sequences will be substracted from the mapped biological sample OTU sequences. i.e subtraction of contaminant sequence reads/ OTUS will be done from the biological sample otu_table.
 
 Then, taxonomic annotation of the biological sample sequences will be done using decontaminated otu-table
 
