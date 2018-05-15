@@ -1,6 +1,6 @@
 # Decontamination: Work in progress
-This script show how to decontaminate biological sequences from the contaminant OTUs sequences. 
-Sample collection, DNA isolation and purification are associated with possible introduction of contaminant DNA into the biological samples. Some possible contaminant includes sampling containers /bottles, sampling reagents, DNA isolation reagents, Scientist/technician and laboratory environments. Contaminants has significant effect especially when working with samples with low biomass composityion, which is the case in most clinical samples. Therefore, it is important to remove contaminant sequences / DNA so as to retain a true biological representation of the sampled site.
+Decontamonation is a process whereby contaminant sequences (OTUs) are removed from the biological.....This script show how to decontaminate biological sample sequences from the contaminant OTUs sequences which may be attributed to sample collectiontools, DNA isolation and purification reagents, laboratoryenvironments as well as researchers. 
+
 
 
 Important steps for the decontamination:
@@ -17,7 +17,7 @@ Run the DNA isolation, library preparation and sequencing, similar to what is do
 -Remove the spiked taxa sequence/s to retain only the contaminant/background sequences from the controls
 -Search for contamtaminant sequences / OTUs in the biological sample sequences by aligning contaminant sequence against the pre aligned biological sample sequences  at 100%, full length (i.e 250 bp), using PyNASTmethod and Uclust algorithmn for pairewise alignment
 -If contaminants are present in the biological sample, then contaminant OTUs sequences will map to specific sequence in the biological sample sequences
--Then, the average reads of the contaminant OTU sequences will be substracted from the mapped biological sample OTU sequences. i.e subtraction of contaminant sequence reads/ OTUS will be done from the biological sample otu_table.
+-Then, the average reads of the contaminant OTUi sequences will be substracted from the mapped biological sample OTU sequences. i.e subtraction of contaminant sequence reads/ OTUS will be done from the biological sample otu_table.
 
 Then, taxonomic annotation of the biological sample sequences will be done using decontaminated otu-table
 
