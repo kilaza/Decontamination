@@ -1,4 +1,4 @@
-candidate sequence ID	candidate nucleotide count	errors	template ID	BLAST percent identity to template	candidate nucleotide count post-NAST
+candidate sequence ID	candidatenucleotidecount	errors	template ID	BLAST percent identity to template	candidatenucleotide count post-NAST
 OTU_1	250	No search results.
 OTU_2	250	No search results.
 OTU_3	250	No search results.
@@ -102,4 +102,3 @@ blast_db:None
 min_len:250
 min_pct:100.0
 pairwise_alignment_method:uclust
-template_filepath:/home/cbio/medmicbio/samson/qiime/decontamination/BM/otus_aligned.fa
