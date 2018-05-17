@@ -1,22 +1,16 @@
 # Decontamination of Microbiome Sequence data
-Decontamonation is a process of removing contaminant sequences (OTUs) from the biological (target) samples sequences data. Potential sources of contaminants are the DNA isolation and purification reagents, sample storage media, sampling tools, laboratory environments and researchers. This modules highlights some aspects to done in the wetlab as well as in dtrylab to be able to detect and remove contaminant microbes from the target microbome sequence data.
+Decontamination is a process of removing contaminant sequence (OTUs) from the biological / taregt samples sequences data. Reported potential sources of contaminants are the DNA isolation and purification reagents, sample storage media, sampling tools, laboratory environments and researchers. This module points some of the aspects to implemented in the wetlab as well as in the dtrylab for the efficient implementation of the deconatmanation process. Lastly, provides a script which can detect and remove contaminant sequence from the target microbome sequence data.
 
+# To be implemented in the Wetlab
+Atleast three replicate of a blank (or sampling media) spiked with known pure bacteria isolate (prefereably not expected in your study profile) should be prepared. the spiking concetration should be comparable to the concentration in the target biological sample. If there is high disperity of the DNA concentration levels betweem biological samples, then, spiked controls can as wellbe prepared at both the higher levels and lower levels. The objective is to introduce a relatively similar competition of the DNA from different OTUs during the amplification process. Run the DNA isolation, library preparation and sequencing in exactly the same ways as in the tareget biological samples.
 
-
-Important steps for the decontamination:
-
-# Wetlab
-Prepare atleast three replicates of a blank controls spiked with known bacteria (sampling media or reagents can be used)
-Run the DNA isolation, library preparation and sequencing, similar to what is done in biological samples
-
-# Bionformatics steps
--Run QC and OTU picking of the spiked controls and biological samples separatedly
--Run taxonomic annotation of the spiked controls to identify sequences taxonomy
--Check reproducibility of controls by comparing percentage of reads in each replicate
--If reads are comparable between replicates (compare percentages), then calculate average reads of each OTU detected
--Remove the spiked taxa sequence/s to retain only the contaminant/background sequences from the controls
--Search for contamtaminant sequences / OTUs in the biological sample sequences by aligning contaminant sequence against the pre aligned biological sample sequences  at 100%, full length (i.e 250 bp), using PyNASTmethod and Uclust algorithmn for pairewise alignment
--If contaminants are present in the biological sample, then contaminant OTUs sequences will map to specific sequence in the biological sample sequences
+# To be implemented in the Bionformatic lab
+1. Run QC and OTU picking and the taxonomic annotation of the spiked controls and biological samples separatedly
+2. Check reproducibility of the controls replicates by comparing percentage of reads in each replicate
+4. If reads are comparable between replicates, then calculate average reads of each OTU detected
+5. Remove the spiked OTUs (the most abundant) retain only the contaminants / background sequences
+6. Search for contaminant sequences in the biological sample sequences by aligning contaminant sequence against the pre-aligned biological sample sequences at 100%, full length (i.e 25bbp), using PyNAST method and Uclust algorithmn for pairewise alignment
+7. If contaminants are present in the biological sample, then contaminant sequences will map to specific sequence in the biological sample sequences
 -Then, the average reads of the contaminant OTUs sequences will be substracted from the mapped biological sample OTU sequences. i.e subtraction of contaminant sequence reads/ OTUS will be done from the biological sample otu_table.
 
 ## Required files and decontamination parameter setting
