@@ -7,21 +7,23 @@ Atleast three replicate of a blank (or sampling media) spiked with known pure ba
 # To be implemented in the Bionformatic lab
 1. Run QC and OTU picking and the taxonomic annotation of the spiked controls and biological samples separatedly
 2. Check reproducibility of the controls replicates by comparing percentage of reads in each replicate
-4. If reads are comparable between replicates, then calculate average reads of each OTU detected
+4. If sequence reads are comparable between replicates, then calculate average sequence reads of each OTU detected
 5. Remove the spiked OTUs (the most abundant) retain only the contaminants / background sequences
-6. Search for contaminant sequences in the biological sample sequences by aligning contaminant sequence against the pre-aligned biological sample sequences at 100%, full length (i.e 25bbp), using PyNAST method and Uclust algorithmn for pairewise alignment
-7. If contaminants are present in the biological sample, then contaminant sequences will map to specific sequence in the biological sample sequences
--Then, the average reads of the contaminant OTUs sequences will be substracted from the mapped biological sample OTU sequences. i.e subtraction of contaminant sequence reads/ OTUS will be done from the biological sample otu_table.
+6. Search for contaminant sequences in the target sample by aligning contaminant sequence against the pre-aligned biological sample sequences as shown below
 
-## Required files and decontamination parameter setting
+" align_seq.py -i $inDir/conta.fa -o $outDir/decont100 -t $inDir/otus_prealigned.fa -m PyNAST -a uclust -e 250 -p 100 "
 
-conta.fa: Is a fasta file with sequences from the background of the spiked controls after removing known spiked bacteria
-decon100: Is a  folder where the output after aligningment will be directed (any name can be given)
-otus_repsetOUT.fa: Is a pree aligned fasta file with all biological sample sequences (from the nextflow output file /otus.align) 
--e = 250 :Align sequences their entire length i.e 250bp
--p = 100 :Percent sequence similarity between contaminant OTUs and Biological sample sequences
--m = PyNAST : method for aligning sequences
--a = uclust : method for performing pairwise alignmnent of sequences
+     conta.fa: Is a fasta file with sequences from the background of the spiked control after removing the spiked bacteria sequence
+     decon100: Is a folder to which the output will be directed
+     otus_prealigned.fa: I a fasta file of the prealigned biological sample sequences
+     e = 250: Align sequences at their entire length. i.e. 250bp
+     -p = 100: Percent sequence similarity between contaminant and the biological sample sequences
+     -m = PyNAST: Method for aligning sequences
+     -a =uclust: Method of performing pairwise sequence alignment i PyNAST
+
+7. Detection of contaminants in the biological sample will be revealed by presence of OTUs from spiked control mapping to their respective OTUs in the bioloigica sample.
+8. Then, the average reads of the contaminant OTUs sequences will be substracted from the mapped biological sample OTU sequences. i.e subtraction of contaminant sequence reads/ OTUS will be done from the biological sample otu_table.
+
 # Output files
 conta_aligned.fasta: This a fasta file with sequences which aligned to biological sequences
 conta_failures.fasta: This is fasta file with sequences which did not align to biological sequences
@@ -31,5 +33,5 @@ onta_log.txt: This is a summary file showing contaminant OTU which aligned to a 
 For all matched contaminant OTUs, their average sequence reads will be subtracted from the respective OTUs in biological sample otu-table.txt (the otu-table.txt is the nextflow output in the folder otu-picking/)
 
 # Decontaminated otu-table
-If the number of sequence reads in the contaminant  OTU is higher than in their respective OTU in the biological sample, then the entire OTU will be removed from the biological sample otu-table, otherwise, the equivalent average reads will be substracted. The decontaminated OTU table can then be used for the taxonomic annotation.
+	If the number of sequence reads in the contaminant  OTU is higher than in their respective OTU in the biological sample, then the entire OTU will be removed from the biological sample otu-table, otherwise, the equivalent average reads will be substracted. The decontaminated OTU table can then be used for the taxonomic annotation.
 
