@@ -1,5 +1,5 @@
-# Decontamination: Work in progress
-Decontamonation is a process whereby contaminant sequences (OTUs) are removed from the biological.....This script show how to decontaminate biological sample sequences from the contaminant OTUs sequences which may be attributed to sample collectiontools, DNA isolation and purification reagents, laboratoryenvironments as well as researchers. 
+# Decontamination of Microbiome Sequence data
+Decontamonation is a process of removing contaminant sequences (OTUs) from the biological (target) samples sequences data. Potential sources of contaminants are the DNA isolation and purification reagents, sample storage media, sampling tools, laboratory environments and researchers. This modules highlights some aspects to done in the wetlab as well as in dtrylab to be able to detect and remove contaminant microbes from the target microbome sequence data.
 
 
 
