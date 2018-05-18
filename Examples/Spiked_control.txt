@@ -1,4 +1,4 @@
-	Control sequence reass					Profile comparison			
+	Control_sequence_reads					Profile comparison(%)			
 OTUId	P1	P2	P3	P4	Average	P1	P2	P3	P4
 OTU_1	29167	22132	37931	26392	28906	99.93	99.91	99.93	99.91
 OTU_2	1	2	8	4	4	0.00	0.01	0.02	0.02
