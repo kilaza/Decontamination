@@ -13,13 +13,14 @@ Atleast three replicate of a blank (or sampling media) spiked with known pure ba
 
 "align_seq.py -i $inDir/conta.fa -o $outDir/decont100 -t $inDir/otus_prealigned.fa -m PyNAST -a uclust -e 250 -p 100 "
 
-*conta.fa: Is a fasta file with sequences from the background of the spiked control after removing the spiked bacteria sequence
-*decon100: Is a folder to which the output will be directed
-*otus_prealigned.fa: I a fasta file of the prealigned biological sample sequences
-*-e = 250: Align sequences at their entire length. i.e. 250bp
-*-p = 100: Percent sequence similarity between contaminant and the biological sample sequences
-*-m = PyNAST: Method for aligning sequences
-*-a =uclust: Method of performing pairwise sequence alignment i PyNAST
+Where;
+conta.fa: Is a fasta file with sequences from the background of the spiked control after removing the spiked bacteria sequence
+decon100: Is a folder to which the output will be directed
+otus_prealigned.fa: I a fasta file of the prealigned biological sample sequences
+-e = 250: Align sequences at their entire length. i.e. 250bp
+-p = 100: Percent sequence similarity between contaminant and the biological sample sequences
+-m = PyNAST: Method for aligning sequences
+-a =uclust: Method of performing pairwise sequence alignment i PyNAST
 
 7. Detection of contaminants in the biological sample will be revealed by presence of OTUs from spiked control mapping to their respective OTUs in the bioloigica sample.
 8. Then, the average reads of the contaminant OTUs sequences will be substracted from the mapped biological sample OTU sequences. i.e subtraction of contaminant sequence reads/ OTUS will be done from the biological sample otu_table.
