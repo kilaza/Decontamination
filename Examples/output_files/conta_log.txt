@@ -11,4 +11,3 @@ blast_db:None
 min_len:250
 min_pct:100.0
 pairwise_alignment_method:uclust
-template_filepath:/home/cbio/medmicbio/samson/qiime/decontamination/BM/otus_aligned.fa
