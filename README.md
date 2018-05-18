@@ -11,11 +11,11 @@ Atleast three replicate of a blank (or sampling media) spiked with known pure ba
 5. Remove the spiked OTUs (the most abundant) retain only the contaminants / background sequences
 6. Search for contaminant sequences in the target sample by aligning contaminant sequence against the pre-aligned biological sample sequences as shown below
 
-   "align_seq.py -i $inDir/conta.fa -o $outDir/decont100 -t $inDir/otus_prealigned.fa -m PyNAST -a uclust -e 250 -p 100 "
+"align_seq.py -i $inDir/conta.fa -o $outDir/decont100 -t $inDir/otus_prealigned.fa -m PyNAST -a uclust -e 250 -p 100 "
 
-conta.fa: Is a fasta file with sequences from the background of the spiked control after removing the spiked bacteria sequence
-decon100: Is a folder to which the output will be directed
-otus_prealigned.fa: I a fasta file of the prealigned biological sample sequences
+*conta.fa: Is a fasta file with sequences from the background of the spiked control after removing the spiked bacteria sequence
+ decon100: Is a folder to which the output will be directed
+ otus_prealigned.fa: I a fasta file of the prealigned biological sample sequences
 -e = 250: Align sequences at their entire length. i.e. 250bp
 -p = 100: Percent sequence similarity between contaminant and the biological sample sequences
 -m = PyNAST: Method for aligning sequences
