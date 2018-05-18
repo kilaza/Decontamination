@@ -22,8 +22,8 @@ Where;
 7. Detection of contaminants in the biological sample will be revealed by presence of OTUs from spiked control mapping to their respective OTUs in the bioloigica sample.
 8. Then, the average reads of the contaminant OTUs sequences will be substracted from the mapped biological sample OTU sequences. i.e subtraction of contaminant sequence reads/ OTUS will be done from the biological sample otu_table.
 # Output files
-conta_aligned.fa: This a fasta file with sequences which aligned to biological sequences
-conta_failures.fa: This is fasta file with sequences which did not align to biological sequences
-onta_log.txt: This is a summary file showing contaminant OTU which aligned to a given biological sample sequences. Thissummary will be used to locate contaminant OTUs of which their respective average sequence reads will be subtracted from matched biological OTUs. NB: conta - stands for contaminant,the user can give a different name.
+- conta_aligned.fa: Is a fasta file with sequences which aligned to the biological sample sequences
+- conta_failures.fa: Is a fasta file with sequences which did not align to biological sample sequences
+- conta_log.txt: This is a summary file showing contaminant OTU which aligned to biological sample sequences. The summary file shows contaminant OTUs which mapped to biological sample OTUs.
 # Removing contaminants from the biological sample
- Average reads of contaminant OTUs will be subtracted from their respective mapped OTUs in the biological sample otu-table.txt (the nextflow output in the folder otu-picking/). If the number of reads in the contaminant OTU is higher than in their OTU in the biological sample, then the entire OTU will be removed, otherwise, only the equilavent reads will subtracted.
+Average reads of contaminant OTUs will be subtracted from their respective mapped OTUs in the biological sample otu-table.txt (the nextflow output in the folder otu-picking/). If the number of reads in the contaminant OTU is higher than in their respective OTU in the biological sample, then the entire OTU will be removed, otherwise, only the equilavent reads will subtracted.
